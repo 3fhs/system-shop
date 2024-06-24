@@ -109,7 +109,13 @@
             />
             <small id="total"></small>
           </div>
-          <input type="number" placeholder="count" id="count" />
+          <input
+            type="number"
+            placeholder="count"
+            id="count"
+            min="0"
+            max="100"
+          />
           <input type="text" placeholder="category" id="category" />
           <button onclick="newpro()" id="submit">create</button>
         </div>

@@ -10,7 +10,7 @@ let submit = document.getElementById("submit");
 
 //global
 let mood = "create";
-let updateId;
+let ziz;
 
 //get total
 function totalPrice() {
@@ -47,8 +47,7 @@ submit.onclick = () => {
     title.value != "" &&
     price.value != "" &&
     category.value != "" &&
-    count.value > 0 &&
-    count.value <= 100
+    newArrayBro.count < 100
   ) {
     //change mood
     if (mood === "create") {
@@ -56,15 +55,15 @@ submit.onclick = () => {
       if (newArrayBro.count > 1) {
         for (let i = 0; i < newArrayBro.count; i++) {
           arrayBro.push(newArrayBro);
-          showData();
         }
       } else {
         arrayBro.push(newArrayBro);
       }
     } else {
-      arrayBro[updateId] = newArrayBro;
+      arrayBro[ziz] = newArrayBro;
+      mood = "create";
+      submit.innerHTML = "Create";
       count.style.display = "block";
-      submit.innerHTML = `Create`;
     }
     emptyInput();
   }
@@ -140,9 +139,9 @@ function updateSelect(i) {
   totalPrice();
   category.value = arrayBro[i].category;
   count.style.display = "none";
-  submit.innerHTML = `update`;
+  submit.innerHTML = "update";
   mood = "update";
-  updateId = i;
+  ziz = i;
   scroll({
     top: "0",
     behavior: "smooth",
