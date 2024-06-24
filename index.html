@@ -1,0 +1,154 @@
+<!DOCTYPE html5>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Free Web tutorials" />
+    <meta name="keywords" content="HTML, CSS, JavaScript" />
+    <meta name="author" content="mohamed" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>system-shop</title>
+    <link rel="stylesheet" href="system.css/system-shop.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="system.css/normalize-system.css" />
+    <link rel="stylesheet" href="system.css/all.min.css" />
+    <link
+      rel="stylesheet"
+      href="./system.css/fontawesome-free-6.5.1-web/fontawesome-free-6.5.1-web/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="./system.css/fontawesome-free-6.5.1-web/fontawesome-free-6.5.1-web/js/all.min.js"
+    />
+  </head>
+  <body>
+    <header>
+      <button id="calc-click" onclick="openCalc()">
+        <i class="fa-solid fa-calculator"></i>calculator
+      </button>
+      <div class="header-time">
+        <div class="date"></div>
+        <div class="day"></div>
+        <div class="time">11:44:35</div>
+      </div>
+    </header>
+    <!-- start calculator  -->
+    <div class="calculator" id="calculator">
+      <i class="fa-regular fa-rectangle-xmark" onclick="closeCalc()"></i>
+      <div class="calc-container">
+        <div id="calc">
+          <input id="display" readonly />
+          <div id="keys">
+            <button onclick="appendToDisplay('+')" class="operator-btn">
+              +
+            </button>
+            <button onclick="appendToDisplay('7')">7</button>
+            <button onclick="appendToDisplay('8')">8</button>
+            <button onclick="appendToDisplay('9')">9</button>
+            <button onclick="appendToDisplay('-')" class="operator-btn">
+              -
+            </button>
+            <button onclick="appendToDisplay('4')">4</button>
+            <button onclick="appendToDisplay('5')">5</button>
+            <button onclick="appendToDisplay('6')">6</button>
+            <button onclick="appendToDisplay('*')" class="operator-btn">
+              *
+            </button>
+            <button onclick="appendToDisplay('1')">1</button>
+            <button onclick="appendToDisplay('2')">2</button>
+            <button onclick="appendToDisplay('3')">3</button>
+            <button onclick="appendToDisplay('/')" class="operator-btn">
+              /
+            </button>
+            <button onclick="appendToDisplay('0')">0</button>
+            <button onclick="appendToDisplay('.')">.</button>
+            <button onclick="calculator()" class="operator-btn">=</button>
+            <button onclick="clearDisplay()" class="operator-btn">C</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end calcolator -->
+    <div class="curd">
+      <div class="container">
+        <div class="head">
+          <h2>CRUD</h2>
+          <p>product mangement system</p>
+        </div>
+        <div class="input-head">
+          <input type="text" placeholder="tittle" id="title" />
+          <div class="total-price">
+            <input
+              onkeyup="totalPrice()"
+              type="number"
+              placeholder="price"
+              id="price"
+              required
+            />
+            <input
+              onkeyup="totalPrice()"
+              type="number"
+              placeholder="taxes"
+              id="taxes"
+            />
+            <input
+              onkeyup="totalPrice()"
+              type="number"
+              placeholder="ads"
+              id="ads"
+            />
+            <input
+              onkeyup="totalPrice()"
+              type="number"
+              placeholder="discount"
+              id="discount"
+            />
+            <small id="total"></small>
+          </div>
+          <input type="number" placeholder="count" id="count" />
+          <input type="text" placeholder="category" id="category" />
+          <button onclick="newpro()" id="submit">create</button>
+        </div>
+        <div class="output">
+          <input
+            type="text"
+            onkeyup="searchEveryProduct(this.value)"
+            placeholder="search"
+            id="search"
+          />
+          <div class="btnsearch">
+            <button onclick="searchProduct(this.id)" id="search-title">
+              search by tittle
+            </button>
+            <button onclick="searchProduct(this.id)" id="search-category">
+              search by category
+            </button>
+          </div>
+        </div>
+        <div id="deleteall"></div>
+        <table>
+          <thead>
+            <tr>
+              <th>id</th>
+              <th>tittle</th>
+              <th class="small-media">price</th>
+              <th class="small-media">taxes</th>
+              <th class="small-media">ads</th>
+              <th class="small-media">discount</th>
+              <th>total</th>
+              <th class="menu-media">category</th>
+              <th colspan="2">option</th>
+            </tr>
+          </thead>
+          <tbody id="tbody"></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="footer">made by <span>mohamed a.elghany</span> @2024</div>
+    <script src="system-shop.js"></script>
+  </body>
+</html>

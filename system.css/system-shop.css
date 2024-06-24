@@ -1,0 +1,486 @@
+/* start global  */
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+}
+
+:root {
+  --main-color: #777;
+  --secondary-color: #c3c3c3;
+  --main-transition: 0.3s;
+  --main-padding-top: 100px;
+  --main-padding-bottom: 100px;
+  --section-background: #f6f6f6;
+  --button-click: #4169e1;
+  --button-click-hover: #6495ed;
+  --hover-whight: #fffafa;
+  --change-dark: #7b68ee;
+  --change-dark-blue: #0000cd;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  background-color: white;
+  position: relative;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+input::placeholder {
+  color: #999;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+/* end global   */
+/*start header */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 30px;
+  background-color: var(--hover-whight);
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.header-time {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  text-transform: capitalize;
+  font-size: 20px;
+  font-weight: bold;
+}
+#calc-click {
+  background-color: var(--button-click);
+  color: white;
+  padding: 10px;
+  outline: none;
+  border: none;
+  border-radius: 30px;
+  height: 40px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+#calc-click i {
+  margin-right: 10px;
+  font-size: 20px;
+}
+@media (max-width: 767px) {
+  header {
+    justify-content: center;
+  }
+  .header-time {
+    font-size: 18px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+/*end header*/
+/*calculator*/
+.calculator {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  z-index: 1000;
+  background-color: #1119;
+  top: 0;
+  display: none;
+}
+.calculator .fa-regular {
+  position: absolute;
+  background-color: white;
+  font-size: 40px;
+  right: 0;
+  padding: 10px;
+  top: 0;
+  color: red;
+  border-radius: 10px 0 0 10px;
+  cursor: pointer;
+}
+.calc-container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+#calc {
+  font-family: Arial, sans-serif;
+  background-color: #d2d2ff;
+  border-radius: 15px;
+  max-width: 500px;
+  overflow: hidden;
+  border: 10px solid #d2d2ff;
+}
+#display {
+  width: 90%;
+  margin: 20px auto;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  outline: none;
+  color: black;
+  font-size: 30px;
+  font-weight: bold;
+  padding: 10px;
+}
+#keys {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  padding: 25px;
+  background-color: #ededff;
+  border-radius: 15px;
+  justify-items: center;
+}
+#keys button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  background-color: #777;
+  color: white;
+  font-size: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+#keys button:hover {
+  background-color: #7779;
+}
+#keys button:active {
+  background-color: #7777;
+}
+.operator-btn {
+  background-color: orange !important;
+}
+.operator-btn:hover {
+  background-color: darkorange !important;
+}
+.operator-btn:active {
+  background-color: lightcoral !important;
+}
+/*end calculator*/
+.curd {
+}
+
+.curd .container {
+  width: 100%;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+/* start head  */
+.head {
+  text-align: center;
+  text-transform: uppercase;
+  margin: 30px 0px;
+  width: fit-content;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.head h2 {
+  margin-bottom: 15px;
+  font-size: 30px;
+}
+.head p {
+  letter-spacing: 2;
+  margin-bottom: 10px;
+}
+/* end head  */
+/* start input */
+.input-head {
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 100px;
+}
+.input-head input {
+  width: 100%;
+  height: 40px;
+  outline: none;
+  border-radius: 5px;
+  padding: 10px;
+  color: #444;
+  font-size: 20px;
+  background-color: #ededed;
+  transition: 0.5s;
+}
+.input-head input:focus {
+  transform: scale(1.03);
+}
+.input-head .total-price {
+  display: flex;
+  justify-content: space-around;
+}
+.input-head .total-price > input {
+  width: 20%;
+}
+.input-head .total-price #total {
+  font-size: 20px;
+  text-align: center;
+  padding: 5px;
+  background-color: #ededed;
+  border-radius: 5px;
+  text-transform: capitalize;
+  font-weight: bold;
+}
+.input-head .total-price #total::before {
+  content: "total : ";
+}
+.input-head button {
+  left: 50%;
+  width: 50%;
+  text-align: center;
+  bottom: -70px;
+  transform: translateX(-50%);
+  position: absolute;
+  height: 40px;
+  font-size: 20px;
+  border: none;
+  background-color: var(--button-click);
+  transition: 0.5s;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  text-transform: capitalize;
+}
+.input-head button:hover {
+  background-color: var(--button-click-hover);
+  letter-spacing: 2;
+  color: var(--hover-whight);
+}
+/* end input  */
+/* start out put  */
+.output {
+  margin-top: 50px;
+  width: 100%;
+}
+.output input {
+  width: 100%;
+  height: 40px;
+  outline: none;
+  border-radius: 5px;
+  padding: 10px;
+  color: #444;
+  font-size: 20px;
+  background-color: #ededed;
+  transition: 0.5s;
+}
+.output input:focus {
+  transform: scale(1.03);
+}
+
+.output .btnsearch {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.output .btnsearch button {
+  font-size: 20px;
+  text-align: center;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: var(--button-click);
+  transition: 0.5s;
+  border: none;
+  width: 40%;
+  color: white;
+  cursor: pointer;
+  text-transform: capitalize;
+}
+.output .btnsearch button:hover {
+  background-color: var(--button-click-hover);
+  letter-spacing: 2;
+  color: var(--hover-whight);
+}
+/* end out put  */
+/* start delet all */
+.curd .container #deleteall {
+  left: 50%;
+  width: 100%;
+  text-align: center;
+  transform: translateX(-50%);
+  position: relative;
+  height: 40px;
+  font-size: 20px;
+  text-transform: uppercase;
+  border: none;
+  transition: 0.5s;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+.curd .container #deleteall button {
+  text-align: center;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: red;
+  transition: 0.5s;
+  border: none;
+  width: 40%;
+  height: 40px;
+  color: white;
+  font-weight: bold;
+  text-transform: capitalize;
+  cursor: pointer;
+}
+.curd .container #deleteall button span {
+  padding: 5px;
+}
+.curd .container #deleteall button:hover {
+  background-color: #c70000;
+  letter-spacing: 2;
+}
+/* end delet all */
+/* start table  */
+table {
+  width: 100%;
+  text-align: center;
+  border-right: 2px solid black;
+  border-left: 2px solid black;
+  box-shadow: inset 0 0 8px 4px #777;
+}
+table th {
+  font-size: 20px;
+  padding: 10px;
+  text-transform: uppercase;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+  background-color: #111;
+  color: #fff;
+}
+table td {
+  font-size: 18px;
+  text-align: center;
+  padding: 10px;
+}
+tbody tr {
+  transition: 0.3s;
+}
+tbody tr:hover {
+  background-color: #ededed;
+}
+table button {
+  font-size: 20px;
+  text-align: center;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #777;
+  transition: 0.5s;
+  border: none;
+  cursor: pointer;
+}
+.table-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+#update {
+  background-color: var(--button-click);
+  color: white;
+  text-transform: capitalize;
+}
+#delete {
+  background-color: red;
+  color: white;
+  text-transform: capitalize;
+}
+/* end table */
+/*footer*/
+.footer {
+  background-color: black;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 21px;
+  text-transform: capitalize;
+  color: var(--button-click-hover);
+  font-weight: bold;
+  position: absolute;
+  bottom: -100px;
+}
+.footer span {
+  margin: 0 10px;
+  color: white;
+}
+/*end footer*/
+/* small media  */
+@media (max-width: 768px) {
+  .curd {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .input-head .total-price {
+    flex-direction: column;
+    width: 100%;
+    gap: 20px;
+  }
+  .input-head .total-price > input {
+    width: 100%;
+  }
+  .input-head .total-price #total {
+    text-align: start;
+  }
+  .table-option {
+    gap: 10px;
+    flex-direction: column;
+  }
+  .menu-media {
+    display: none;
+  }
+  .curd .container #deleteall button {
+    width: 100%;
+  }
+  .input-head button {
+    width: 100%;
+  }
+  .footer {
+    font-size: 18px;
+  }
+  .input-head input:focus {
+    transform: none;
+  }
+  .output input:focus {
+    transform: none;
+  }
+}
+/* medium media  */
+@media (max-width: 995px) {
+  .small-media {
+    display: none;
+  }
+}
+/* smallrest media  */
+@media (max-width: 450px) {
+  .curd .container {
+    padding: 0;
+  }
+}
