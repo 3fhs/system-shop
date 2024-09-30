@@ -364,20 +364,22 @@ header {
 /* end delet all */
 /* start table  */
 table {
-  width: 100%;
-  text-align: center;
-  border-right: 2px solid black;
-  border-left: 2px solid black;
-  box-shadow: inset 0 0 8px 4px #777;
+    width: 100%;
+    text-align: center;
+    border-right: 2px solid black;
+    border-left: 2px solid black;
+    box-shadow: 0 0 5px 0px #fff;
+    backdrop-filter: contrast(0.5);
+    border-radius: 10px;
+    overflow: hidden;
 }
 table th {
-  font-size: 20px;
-  padding: 10px;
-  text-transform: uppercase;
-  border-left: 2px solid black;
-  border-right: 2px solid black;
-  background-color: #111;
-  color: #fff;
+    font-size: 20px;
+    padding: 10px;
+    text-transform: uppercase;
+    background-color: #111;
+    color: #fff;
+    border-radius: 5px;
 }
 table td {
   font-size: 18px;
